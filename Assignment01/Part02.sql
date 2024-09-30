@@ -54,10 +54,8 @@ select * from sales;
 select * from inventory;
 
 select products.product_name, sum(sales.units_sold) as total_units_sold, inventory.current_quantity as available_quntity from products join sales on products.product_id = sales.product_id join inventory on products.product_id = inventory.product_id where current_quantity > 10 group by products.product_name, inventory.current_quantity having sum(sales.units_sold) > 5; 
-
-
-
-
+select * from products join inventory on products.product_id = inventory.product_id where category="Electronics" and current_quantity < 10;
+select products.product_name, products.category, products.price from products join sales on products.product_id = sales.product_id join inventory on inventory.product_id = products.product_id where current_quantity > 5 and units_sold > 0;
 
 
 
